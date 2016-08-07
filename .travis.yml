@@ -1,0 +1,20 @@
+language: bash
+services: docker
+
+
+install:
+  - docker build -t trusty -f trusty/Dockerfile .
+  - docker build -t xenial -f xenial/Dockerfile .
+  
+
+script: 
+  - docker run --name trusty_test trusty
+  - docker run --name xenial_test xenial
+  - docker ps -a | grep -q  trusty_test
+  - docker ps -a | grep -q  xenial_test
+
+after_script:
+  - docker rm trusty_test
+  - docker rm xenial_test
+  - docker rmi trusty
+  - docker rmi xenial
