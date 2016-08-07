@@ -1,6 +1,6 @@
 # About this Repo
 
-`Ubuntu-xenial` image and installs the following extra packages:
+`Ubuntu` image and installs the following extra packages:
 
 - `wget`
 - `sudo`
